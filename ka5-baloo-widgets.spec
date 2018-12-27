@@ -1,19 +1,27 @@
-%define		kdeappsver	17.08.2
-%define		qtver		5.3.2
+%define		kdeappsver	18.12.0
+%define		qtver		5.9.0
 %define		kaname		baloo-widgets
-Summary:	A KDE Feed Reader
+Summary:	Baloo widgets
 Name:		ka5-%{kaname}
-Version:	17.08.2
+Version:	18.12.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	5e485118ac64d7d25b048bfacbfdc937
+# Source0-md5:	355a3e9643baefd4dae0afd5ec13f00c
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt5Gui-devel >= 5.11.1
+BuildRequires:	Qt5Test-devel
+BuildRequires:	Qt5Widgets-devel
 BuildRequires:	cmake >= 2.8.12
-BuildRequires:	kf5-baloo-devel
-BuildRequires:	kf5-extra-cmake-modules >= 1.4.0
+BuildRequires:	gettext-devel
+BuildRequires:	kf5-baloo-devel >= 5.43.0
+BuildRequires:	kf5-extra-cmake-modules >= 5.53.0
+BuildRequires:	kf5-kconfig-devel >= 5.43.0
+BuildRequires:	kf5-kfilemetadata-devel >= 5.43.0
+BuildRequires:	kf5-ki18n-devel >= 5.43.0
+BuildRequires:	kf5-kio-devel >= 5.43.0
 BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
@@ -22,11 +30,11 @@ BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Baloo widgets.
+Widgets for Baloo.
 
 %package devel
 Summary:	Header files for %{kaname} development
-Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kpname}
+Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kaname}
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -65,6 +73,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/baloo_filemetadata_temp_extractor
 %attr(755,root,root) %ghost %{_libdir}/libKF5BalooWidgets.so.5
 %attr(755,root,root) %{_libdir}/libKF5BalooWidgets.so.*.*.*
+%attr(755,root,root) %{_libdir}/qt5/plugins/baloofilepropertiesplugin.so
+%{_datadir}/kservices5/baloofilepropertiesplugin.desktop
 
 %files devel
 %defattr(644,root,root,755)
