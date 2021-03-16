@@ -1,15 +1,15 @@
-%define		kdeappsver	19.04.1
+%define		kdeappsver	20.12.3
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		baloo-widgets
 Summary:	Baloo widgets
 Name:		ka5-%{kaname}
-Version:	19.04.1
+Version:	20.12.3
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
-Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	406224a894f6afb158e650a3d59b7fb7
+Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	6fe60c17a95a6bd63f4a215e3c89efbb
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= 5.11.1
@@ -79,6 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt5/plugins/baloofilepropertiesplugin.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kfileitemaction/tagsfileitemaction.so
 %{_datadir}/kservices5/baloofilepropertiesplugin.desktop
+%{_datadir}/qlogging-categories5/baloo-widgets.categories
 
 %files devel
 %defattr(644,root,root,755)
