@@ -1,15 +1,15 @@
-%define		kdeappsver	20.12.3
+%define		kdeappsver	21.04.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		baloo-widgets
 Summary:	Baloo widgets
 Name:		ka5-%{kaname}
-Version:	20.12.3
+Version:	21.04.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	6fe60c17a95a6bd63f4a215e3c89efbb
+# Source0-md5:	87fa17f7b272b8938c606fe27212f3a1
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= 5.11.1
@@ -74,7 +74,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/baloo_filemetadata_temp_extractor
-%attr(755,root,root) %ghost %{_libdir}/libKF5BalooWidgets.so.5
+%ghost %{_libdir}/libKF5BalooWidgets.so.5
 %attr(755,root,root) %{_libdir}/libKF5BalooWidgets.so.*.*.*
 %attr(755,root,root) %{_libdir}/qt5/plugins/baloofilepropertiesplugin.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kfileitemaction/tagsfileitemaction.so
@@ -85,4 +85,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_includedir}/KF5/BalooWidgets
 %{_libdir}/cmake/KF5BalooWidgets
-%attr(755,root,root) %{_libdir}/libKF5BalooWidgets.so
+%{_libdir}/libKF5BalooWidgets.so
